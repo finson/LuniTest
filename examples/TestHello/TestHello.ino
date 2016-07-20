@@ -1,5 +1,7 @@
+#include <Arduino.h>
+
 #include <LuniLib.h>
-#include <Luni/test/Frame/DeviceDriverTest.h>
+#include <LuniTest.h>
 
 // Device Driver selection
 
@@ -15,8 +17,8 @@ DeviceDriver *selectedDevices[] = {
 
 // Test selection
 
-#include <TestBody/TestHello.h>
-#include <TestBody/TestCommon.h>
+#include <Body/TestHello.h>
+#include <Body/TestCommon.h>
 
 DeviceDriverTest *selectedTests[] {
   new TestCommon("HW:0"),

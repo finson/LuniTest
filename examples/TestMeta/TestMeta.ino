@@ -1,5 +1,5 @@
 #include <LuniLib.h>
-#include <TestFrame/DeviceDriverTest.h>
+#include <Frame/DeviceDriverTest.h>
 
 // Device Driver selection
 
@@ -13,9 +13,9 @@ DeviceDriver *selectedDevices[] = {
 
 // Test selection
 
-#include <TestBody/TestHello.h>
-#include <TestBody/TestMeta.h>
-#include <TestBody/TestCommon.h>
+#include <Body/TestHello.h>
+#include <Body/TestMeta.h>
+#include <Body/TestCommon.h>
 
 DeviceDriverTest *selectedTests[] {
   new TestCommon("Meta:0"),

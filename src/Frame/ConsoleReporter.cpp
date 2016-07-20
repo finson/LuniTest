@@ -15,7 +15,7 @@ const char *actionNames[] = {"OPEN","READ","WRITE","CLOSE"};
 ConsoleReporter::ConsoleReporter() {}
 
 void ConsoleReporter::reportOpen(int status, int openOpts, int flags, const byte *buf) {
-  sendDeviceResponse((int)(DAC::OPEN), status, openOpts, flags, 0, 0,buf);
+  sendDeviceResponse((int)(DeviceConstants::DAC::OPEN), status, openOpts, flags, 0, 0,buf);
 }
 /**
  * Translates a message from the DeviceDriver environment to a call to a Firmata-aware method.
@@ -27,7 +27,7 @@ void ConsoleReporter::reportOpen(int status, int openOpts, int flags, const byte
  * @param buf The byte[] result of the read().
  */
 void ConsoleReporter::reportRead(int status, int handle, int flags, int reg, int count, const byte *buf) {
-  sendDeviceResponse((int)(DAC::READ), status, handle, flags, reg, count, buf);
+  sendDeviceResponse((int)(DeviceConstants::DAC::READ), status, handle, flags, reg, count, buf);
 }
 /**
  * Translates a message from the DeviceDriver environment to a call to a Firmata-aware method.
@@ -38,11 +38,11 @@ void ConsoleReporter::reportRead(int status, int handle, int flags, int reg, int
  * equal to the byte count in status after a successful write.
  */
 void ConsoleReporter::reportWrite(int status, int handle, int flags, int reg, int count) {
-  sendDeviceResponse((int)(DAC::WRITE), status, handle, flags, reg, count);
+  sendDeviceResponse((int)(DeviceConstants::DAC::WRITE), status, handle, flags, reg, count);
 }
 
 void ConsoleReporter::reportClose(int status, int handle, int flags) {
-  sendDeviceResponse((int)(DAC::CLOSE), status, handle, flags);
+  sendDeviceResponse((int)(DeviceConstants::DAC::CLOSE), status, handle, flags);
 }
 
 void ConsoleReporter::reportString(const byte *dataBytes) {
@@ -51,7 +51,7 @@ void ConsoleReporter::reportString(const byte *dataBytes) {
 }
 
 void ConsoleReporter::reportError(int status) {
-  sendDeviceResponse((int)(DAC::CLOSE), status);
+  sendDeviceResponse((int)(DeviceConstants::DAC::CLOSE), status);
 }
 
 void ConsoleReporter::reportClaimPin(int pin) {
@@ -101,9 +101,9 @@ void ConsoleReporter::sendDeviceResponse(int action, int status, int handle, int
 
   if (dataBytes != 0 && status >= 0) {
     Serial.print(", dataBytes: ");
-    if (action == (int)(DAC::OPEN)) {
+    if (action == (int)(DeviceConstants::DAC::OPEN)) {
       rawCount = strlen((const char *)dataBytes)+1;
-    } else if (action == (int)(DAC::READ) && status > 0) {
+    } else if (action == (int)(DeviceConstants::DAC::READ) && status > 0) {
       rawCount = status;
     }
     for (int idx = 0; idx < rawCount; idx++) {

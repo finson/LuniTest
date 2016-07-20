@@ -25,7 +25,7 @@ void TestCommon::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   tst->beforeTest("Open");
 
-  flags  = (int)(DAF::FORCE);
+  flags  = (int)(DeviceConstants::DAF::FORCE);
   openOpts = 0;
   strlcpy((char *)datablock,unitID,BUF_SIZE);
 
@@ -42,8 +42,8 @@ void TestCommon::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   tst->beforeTest("CDRDriverVersion");
 
-  flags = (int)(DAF::NONE);
-  reg = (int)(CDR::DriverVersion);
+  flags = (int)(DeviceConstants::DAF::NONE);
+  reg = (int)(DeviceConstants::CDR::DriverVersion);
   status = gDeviceTable->read(handle, flags, reg, BUF_SIZE, datablock);
   rpt->reportRead(status, handle, flags, reg, count, datablock);
   if (status > 0) {
@@ -55,8 +55,8 @@ void TestCommon::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   tst->beforeTest("ReadUnitNamePrefix");
 
-  flags = (int)(DAF::NONE);
-  reg = (int)(CDR::UnitNamePrefix);
+  flags = (int)(DeviceConstants::DAF::NONE);
+  reg = (int)(DeviceConstants::CDR::UnitNamePrefix);
   status = gDeviceTable->read(handle, flags, reg, BUF_SIZE, datablock);
   rpt->reportRead(status, handle, flags, reg, count, datablock);
   if (status > 0) {
@@ -71,8 +71,8 @@ void TestCommon::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   tst->beforeTest("ReadIntervals");
 
-  flags = (int)(DAF::NONE);
-  reg = (int)(CDR::Intervals);
+  flags = (int)(DeviceConstants::DAF::NONE);
+  reg = (int)(DeviceConstants::CDR::Intervals);
   status = gDeviceTable->read(handle, flags, reg, BUF_SIZE, datablock);
   rpt->reportRead(status, handle, flags, reg, count, datablock);
 
@@ -84,7 +84,7 @@ void TestCommon::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   tst->beforeTest("Close");
 
-  flags = (int)(DAF::NONE);
+  flags = (int)(DeviceConstants::DAF::NONE);
   status = gDeviceTable->close(handle, flags);
   rpt->reportClose(status, handle, flags);
 

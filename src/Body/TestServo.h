@@ -4,9 +4,9 @@
 #include <LuniLib.h>
 #include <Device/ClientReporter.h>
 
-#include <TestFrame/TestManager.h>
-#include <TestFrame/DeviceDriverTest.h>
-#include <TestFrame/Logger.h>
+#include <Frame/TestManager.h>
+#include <Frame/DeviceDriverTest.h>
+#include <Frame/Logger.h>
 
 class TestServo : public DeviceDriverTest {
 public:
