@@ -1,0 +1,52 @@
+{
+  "author": {
+    "email": "strix@whidbey.com",
+    "name": "Doug Johnson"
+  },
+  "bugs": {
+    "url": "https://github.com/finson/lunitest/issues"
+  },
+  "cpu": [],
+  "dependencies": {
+    "Luni": ">=0.1",
+    "FirmataWithDeviceFeature": ">=0.1"
+  },
+  "description": "A collection of Arduino sketches for testing Luni device drivers.",
+  "devDependencies": {},
+  "directories": {
+    "bin": ".bin",
+    "doc": "doc",
+    "example": "examples",
+    "jars": "",
+    "lib": "libraries",
+    "src": "src",
+    "test": ""
+  },
+  "homepage": "https://github.com/finson-release/finson-release.github.io/wiki",
+  "keywords": [
+    "arduino",
+    "test",
+    "device",
+    "driver",
+    "C++",
+    "test"
+  ],
+  "license": "GPL-3.0",
+  "main": "",
+  "name": "lunitest",
+  "optionalDependencies": {},
+  "os": [],
+  "readme": "See readme.md for more information.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/finson/lunitest.git"
+  },
+  "scripts": {},
+  "version": "0.1.0",
+  "x-batwing": {
+    "category": "Other",
+    "framework": "arduino",
+    "platform": ""
+  }
+
+}
