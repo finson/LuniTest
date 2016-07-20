@@ -1,0 +1,18 @@
+{
+"name": "LuniTest",
+"description": "A set of test programs for testing the Arduino Luni device driver library.",
+"keywords": "Arduino, Luni, Device, Firmata",
+"authors": { "name": "Doug Johnson", "email": "strix@whidbey.com"},
+"repository": { "type": "git", "url": "https://github.com/finson/LuniTest.git"},
+//"version": ""
+//"downloadUrl":
+//"url":
+//"include":
+//"exclude":
+"frameworks": "arduino",
+"platforms": "atmelavr",
+"dependencies": [
+{ "name": "Luni", "frameworks": "arduino", "platforms": "atmelavr"}
+]
+//"examples":
+}
