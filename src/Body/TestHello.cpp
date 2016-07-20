@@ -26,7 +26,7 @@ void TestHello::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   tst->beforeTest("Open");
 
-  flags  = (int)(DAF::FORCE);
+  flags  = (int)(DeviceConstants::DAF::FORCE);
   openOpts = 0;
   strlcpy((char *)datablock,unitID,BUF_SIZE);
 
@@ -47,7 +47,7 @@ void TestHello::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   tst->beforeTest("ReadInterjection");
 
-  flags = (int)(DAF::NONE);
+  flags = (int)(DeviceConstants::DAF::NONE);
   reg = (int)(DDHello::REG::INTERJECTION);
   status = gDeviceTable->read(handle, flags, reg, BUF_SIZE, datablock);
   rpt->reportRead(status, handle, flags, reg, count, datablock);
@@ -63,7 +63,7 @@ void TestHello::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   tst->beforeTest("ReadObject");
 
-  flags = (int)(DAF::NONE);
+  flags = (int)(DeviceConstants::DAF::NONE);
   reg = (int)(DDHello::REG::OBJECT);
   status = gDeviceTable->read(handle, flags, reg, BUF_SIZE, datablock);
   rpt->reportRead(status, handle, flags, reg, count, datablock);
@@ -79,8 +79,8 @@ void TestHello::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   tst->beforeTest("ReadStreamOnce");
 
-  flags = (int)(DAF::NONE);
-  reg = (int)(CDR::Stream);
+  flags = (int)(DeviceConstants::DAF::NONE);
+  reg = (int)(DeviceConstants::CDR::Stream);
   status = gDeviceTable->read(handle, flags, reg, BUF_SIZE, datablock);
   rpt->reportRead(status, handle, flags, reg, count, datablock);
   if (status > 0) {
@@ -97,7 +97,7 @@ void TestHello::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   tst->beforeTest("Close");
 
-  flags = (int)(DAF::NONE);
+  flags = (int)(DeviceConstants::DAF::NONE);
   status = gDeviceTable->close(handle, flags);
   rpt->reportClose(status, handle, flags);
 
@@ -113,7 +113,7 @@ void TestHello::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   // Open
 
-  flags  = (int)(DAF::NONE);
+  flags  = (int)(DeviceConstants::DAF::NONE);
   openOpts = 0;
   strlcpy((char *)datablock,unitID,BUF_SIZE);
 
@@ -123,8 +123,8 @@ void TestHello::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   // Write Intervals
 
-  flags = (int)(DAF::NONE);
-  reg = (int)(CDR::Intervals);
+  flags = (int)(DeviceConstants::DAF::NONE);
+  reg = (int)(DeviceConstants::CDR::Intervals);
   fromHostTo32LE(0UL,datablock);
   fromHostTo32LE(5000UL,datablock+4);
   count = 8;
@@ -133,8 +133,8 @@ void TestHello::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   // Read Intervals
 
-  flags = (int)(DAF::NONE);
-  reg = (int)(CDR::Intervals);
+  flags = (int)(DeviceConstants::DAF::NONE);
+  reg = (int)(DeviceConstants::CDR::Intervals);
   count = 8;
   status = gDeviceTable->read(handle, flags, reg, count, datablock);
   rpt->reportRead(status, handle, flags, reg, count, datablock);
@@ -143,8 +143,8 @@ void TestHello::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   // Initiate continuous read
 
-  flags = (int)(DAF::MILLI_RUN);
-  reg = (int)(CDR::Stream);
+  flags = (int)(DeviceConstants::DAF::MILLI_RUN);
+  reg = (int)(DeviceConstants::CDR::Stream);
   count = BUF_SIZE;
   status = gDeviceTable->read(handle, flags, reg, count, datablock);
   rpt->reportRead(status, handle, flags, reg, count, datablock);

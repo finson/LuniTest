@@ -1,5 +1,5 @@
 #include <LuniLib.h>
-#include <TestFrame/DeviceDriverTest.h>
+#include <Frame/DeviceDriverTest.h>
 
 // Device Driver selection
 
@@ -13,8 +13,8 @@ DeviceDriver *selectedDevices[] = {
 
 // Test selection
 
-#include <TestBody/TestMCP9808.h>
-#include <TestBody/TestCommon.h>
+#include <Body/TestMCP9808.h>
+#include <Body/TestCommon.h>
 
 DeviceDriverTest *selectedTests[] {
   new TestCommon("MCP9808:0"),

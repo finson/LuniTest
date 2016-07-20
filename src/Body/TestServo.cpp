@@ -25,7 +25,7 @@ void TestServo::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   tst->beforeTest("Open");
 
-  flags  = (int)(DAF::FORCE);
+  flags  = (int)(DeviceConstants::DAF::FORCE);
   openOpts = 0;
   strlcpy((char *)datablock, unitID, BUF_SIZE);
 
@@ -157,7 +157,7 @@ void TestServo::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
   // =============================================================
 
   tst->beforeTest("Close");
-  flags = (int)(DAF::NONE);
+  flags = (int)(DeviceConstants::DAF::NONE);
   status = gDeviceTable->close(handle, flags);
   rpt->reportClose(status, handle, flags);
   tst->assertTrue("Close.", (status >= 0));
@@ -171,7 +171,7 @@ void TestServo::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   // Open
 
-  flags  = (int)(DAF::NONE);
+  flags  = (int)(DeviceConstants::DAF::NONE);
   openOpts = 0;
   strlcpy((char *)datablock,unitID,BUF_SIZE);
 
@@ -183,8 +183,8 @@ void TestServo::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   // Write Intervals
 
-  flags = (int)(DAF::NONE);
-  reg = (int)(CDR::Intervals);
+  flags = (int)(DeviceConstants::DAF::NONE);
+  reg = (int)(DeviceConstants::CDR::Intervals);
   fromHostTo32LE(0UL,datablock);
   fromHostTo32LE(500UL,datablock+4);
   count = 8;
@@ -212,7 +212,7 @@ void TestServo::doTest(TestManager *tst, ClientReporter *rpt, Logger *log) {
 
   // Initiate continuous write
 
-  flags = (int)(DAF::MILLI_RUN);
+  flags = (int)(DeviceConstants::DAF::MILLI_RUN);
   reg = (int)(DDServo::REG::POSITION_MICROSECONDS);
   count = 2;
   fromHostTo16LE((int)(1500),datablock);
